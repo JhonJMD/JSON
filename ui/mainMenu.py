@@ -1,3 +1,4 @@
+import funciones.clientes as c
 import os
 opciones = ['Gestor Clientes', 'Gestor Proveedores', 'Gestor Productos', 'Salir']
 opcionClientes = ['Nuevo Cliente', 'Borrar Cliente', 'Editar Cliente', 'Buscar Cliente', 'Menu Principal']
@@ -11,6 +12,7 @@ def generarMainMenu():
     for i,item in enumerate(opciones):
         print(f'{(i+1)} - {item}')
 def generarClienteMenu():
+    c.cf.checkFile(c.clientes)
     isActiveCostumer = True
     header = """
     ++++++++++++++++++++++++++++++

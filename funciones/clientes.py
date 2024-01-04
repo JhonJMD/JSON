@@ -5,7 +5,7 @@ cliente={
     'cc':'00',
     'nombre':'',
     'apellido':'',
-    'telefono':0,
+    'telefono':[],
     'emailpersonal':'',
     'emailcorporativo':'',
     'edad':0
@@ -17,8 +17,10 @@ telefono={
 cf.MY_DATABASE = "data/clientes.json"
 def NewCustomer():
     pass
-    # if __name__=='__main__':if __name__=='__main__':
-    #     if (c.cf.checkFile()):
-    #         print("OK ")
-    #     else:
-    #         c.cf.NewFile(c.clientes)
+
+def validarArchivoClientes():
+    if __name__=='__main__':
+        if (cf.checkFile()):
+            print("OK ")
+        else:
+            cf.NewFile(clientes)

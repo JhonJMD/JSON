@@ -1,12 +1,16 @@
 import json
 import os
-MY_DATABASE =" "
-def NewFile(data:dict):
+MY_DATABASE = ''
+
+def NewFile(*param):
     with open(MY_DATABASE,"w") as wf:
-        json.dump(data,wf,indent=3)
-        wf.close()
-def checkFile(archivo:str)->bool:
-    return os.path.isfile(MY_DATABASE)
+        json.dump(param[0],wf,indent=4)
+def checkFile(*param):
+    if (os.path.isfile(MY_DATABASE)):
+        print('Lo encontre')
+    else:
+        if(len(param)>0):
+            NewFile(param[0])
 
 # def checkFile(archivo:str)->bool:
 #     try:
