@@ -30,7 +30,50 @@ def generarClienteMenu():
             print('Error en el dato ingresado')
         else:
             if (op == 1):
-                pass
+                os.system('cls')
+                title = """
+                +++++++++++++++++++++++++++++
+                + CREACION DE NUEVO CLIENTE +
+                +++++++++++++++++++++++++++++
+                """
+                print(title)
+                cliente={
+                    'cc':'00',
+                    'nombre':'',
+                    'apellido':'',
+                    'emailpersonal':'',
+                    'emailcorporativo':'',
+                    'edad':0
+                }
+                for key,item in cliente.items():
+                    if (key != 'edad'):
+                        cliente[key] = input(f'Ingrese {key.capitalize()} del Cliente : ')
+                    else:
+                        validateAge = True
+                        while (validateAge):
+                            try:    
+                                cliente['edad'] = input(f'Ingrese {key.capitalize()} del Cliente : ')
+                            except ValueError:
+                                print('El valor ingresado es invalido')
+                            else:
+                                validateAge = False
+                isAddPhone = True
+                telefono = {
+                    'telefono':[]
+                }
+                phone = {
+                    'titulo' : 'xx',
+                    'valor' : ''
+                }
+                while (isAddPhone):
+                    phone['titulo'] = input('Ingrese ubicacion (Casa,oficina,Movil) : ')
+                    phone['valor']= input(f'Ingrese el Nro {phone['titulo']} del Cliente {cliente['nombre']} : ')
+                    telefono['telefono'].append(phone)
+                    isAddPhone = bool(input('Para terminar presiona Enter.... o Cualquier letra para continuar'))
+                cliente.update(telefono)
+                os.system('cls')
+                print(cliente)
+                os.system('pause')
             elif (op == 2):
                 pass
             elif (op == 3):
